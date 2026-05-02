@@ -134,7 +134,7 @@ export function ApprovalQueueView() {
               >
                 {pu.email}
               </span>
-              <div style={{ display: 'flex', gap: '8px', flexShrink: 0 }}>
+              <div style={{ display: 'flex', gap: '8px', flexShrink: 0, marginLeft: 'auto' }}>
                 <button
                   onClick={() => handleApprove(pu.id)}
                   className="glass-button"
