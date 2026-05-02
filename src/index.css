@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@600&display=swap');
+
+@font-face {
+  font-family: 'Aquire';
+  src: url('/fonts/Aquire/Aquire-BW0ox.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+:root {
+  --bg-dark: #0a0a0f;
+  --bg-panel: #151520;
+  --bg-panel-light: #202030;
+  --bg-input: #2a2a3f;
+
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+
+  /* Generic App Theme */
+  --accent-primary: #ffffff;
+  --accent-primary-glow: rgba(255, 255, 255, 0.4);
+
+  /* Pump - Cyan Theme */
+  --accent-cyan: #00f0ff;
+  --accent-cyan-dark: #0099aa;
+  --accent-cyan-glow: rgba(0, 240, 255, 0.4);
+
+  /* Sensor - Magenta/Purple Theme */
+  --accent-purple: #ff00ff;
+  --accent-purple-dark: #aa00aa;
+  --accent-purple-glow: rgba(255, 0, 255, 0.4);
+
+  /* Pen - Yellow Theme */
+  --accent-yellow: #facc15;
+  --accent-yellow-dark: #ca8a04;
+  --accent-yellow-glow: rgba(250, 204, 21, 0.4);
+
+  --accent-danger: #ff4444;
+  --accent-success: #00ff88;
+
+  --border-light: rgba(255, 255, 255, 0.1);
+  --border-active: rgba(255, 255, 255, 0.3);
+
+  --radius: 16px;
+  --radius-sm: 8px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  background-image:
+    radial-gradient(circle at 50% -20%, var(--bg-panel-light) 0%, transparent 50%),
+    linear-gradient(to bottom, transparent 0%, var(--bg-dark) 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+  font-family: inherit;
+  outline: none;
+}
+
+input,
+textarea {
+  font-family: inherit;
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: rgba(21, 21, 32, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+}
+
+.glass-button {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  padding: 12px 24px;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.glass-button:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--border-active);
+}
+
+.glass-button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.glass-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Page Layouts */
+.page-container {
+  flex: 1;
+  padding: 24px 20px 80px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+.page-title {
+  font-family: 'Aquire', sans-serif;
+  font-size: 28px;
+  font-weight: normal;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #fff, #888);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 8px;
+}
+
+.page-subtitle {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--bg-panel-light);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}

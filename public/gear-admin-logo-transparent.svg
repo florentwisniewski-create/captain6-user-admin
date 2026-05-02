@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 512 512">
+  <defs>
+    <radialGradient id="bg-gradient" cx="50%" cy="25%" r="65%" fx="50%" fy="25%">
+      <stop offset="0%" stop-color="#1e1e2d" />
+      <stop offset="100%" stop-color="#050508" />
+    </radialGradient>
+
+    <!-- Neon Blue Glow -->
+    <filter id="neon-blue" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur1" />
+      <feGaussianBlur in="SourceAlpha" stdDeviation="8" result="blur2" />
+      <feGaussianBlur in="SourceAlpha" stdDeviation="15" result="blur3" />
+      <feMerge result="blurs">
+        <feMergeNode in="blur3" />
+        <feMergeNode in="blur2" />
+        <feMergeNode in="blur1" />
+      </feMerge>
+      <feFlood flood-color="#00f0ff" result="color" />
+      <feComposite in="color" in2="blurs" operator="in" result="glow" />
+
+      <feMorphology operator="erode" radius="1" in="SourceAlpha" result="eroded" />
+      <feFlood flood-color="rgba(255,255,255,0.9)" result="coreColor" />
+      <feComposite in="coreColor" in2="eroded" operator="in" result="core" />
+
+      <feMerge>
+        <feMergeNode in="glow" />
+        <feMergeNode in="SourceGraphic" />
+        <feMergeNode in="core" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Dark Gradient Background (Circle) -->
+  
+  
+  <!-- Outer glowing wireframe circle -->
+  <circle cx="256" cy="256" r="120" fill="none" stroke="#00f0ff" stroke-width="12" filter="url(#neon-blue)" />
+
+  <!-- Center glowy dot -->
+  <circle cx="256" cy="256" r="30" fill="#00f0ff" filter="url(#neon-blue)" />
+</svg>
