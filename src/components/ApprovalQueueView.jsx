@@ -114,14 +114,27 @@ export function ApprovalQueueView() {
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
+                flexWrap: 'wrap',
+                gap: '16px',
                 background: 'rgba(255,255,255,0.05)',
                 padding: '16px',
                 borderRadius: '8px',
                 border: '1px solid rgba(255,255,255,0.1)',
               }}
             >
-              <span style={{ fontSize: '14px', color: '#fff', fontWeight: 500 }}>{pu.email}</span>
-              <div style={{ display: 'flex', gap: '8px' }}>
+              <span 
+                style={{ 
+                  fontSize: '14px', 
+                  color: '#fff', 
+                  fontWeight: 500,
+                  wordBreak: 'break-all',
+                  flex: '1 1 auto',
+                  minWidth: '200px'
+                }}
+              >
+                {pu.email}
+              </span>
+              <div style={{ display: 'flex', gap: '8px', flexShrink: 0 }}>
                 <button
                   onClick={() => handleApprove(pu.id)}
                   className="glass-button"
